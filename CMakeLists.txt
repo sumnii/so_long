@@ -3,4 +3,4 @@ project(so_long C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(so_long main.c get_next_line.c get_next_line_utils.c map_check.c)
+add_executable(so_long main.c get_next_line.c get_next_line_utils.c map_load.c map_check.c)

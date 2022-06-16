@@ -67,7 +67,7 @@ char	*ft_cut_line(char **line, char **save)
 		*save = NULL;
 		return (*line);
 	}
-	before_lf = ft_idx_dup(*line, 0, lf_i);
+	before_lf = ft_idx_dup(*line, 0, lf_i - 1);
 	if (!before_lf)
 		return (ft_close(line, save));
 	return_line = ft_strjoin(save, &before_lf);
@@ -83,7 +83,7 @@ char	*ft_cut_save(char **save)
 	int		lf_i;
 
 	lf_i = ft_find_lf(*save);
-	return_line = ft_idx_dup(*save, 0, lf_i);
+	return_line = ft_idx_dup(*save, 0, lf_i - 1);
 	if (!return_line)
 		return (ft_close(NULL, save));
 	after_lf = ft_idx_dup(*save, lf_i + 1, ft_strlen(*save) - 1);
@@ -92,12 +92,15 @@ char	*ft_cut_save(char **save)
 	return (return_line);
 }
 
-void	*ft_close(char **line, char **save) {
-	if (line && *line) {
+void	*ft_close(char **line, char **save)
+{
+	if (line && *line)
+	{
 		free(*line);
 		*line = NULL;
 	}
-	if (save && *save) {
+	if (save && *save)
+	{
 		free(*save);
 		*save = NULL;
 	}

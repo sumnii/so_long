@@ -67,6 +67,12 @@ build CMakeFiles/so_long.dir/get_next_line_utils.c.o: C_COMPILER__so_long_Debug 
   OBJECT_DIR = CMakeFiles/so_long.dir
   OBJECT_FILE_DIR = CMakeFiles/so_long.dir
 
+build CMakeFiles/so_long.dir/map_load.c.o: C_COMPILER__so_long_Debug /Users/sumsong/CLionProjects/so_long/map_load.c || cmake_object_order_depends_target_so_long
+  DEP_FILE = CMakeFiles/so_long.dir/map_load.c.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu99
+  OBJECT_DIR = CMakeFiles/so_long.dir
+  OBJECT_FILE_DIR = CMakeFiles/so_long.dir
+
 build CMakeFiles/so_long.dir/map_check.c.o: C_COMPILER__so_long_Debug /Users/sumsong/CLionProjects/so_long/map_check.c || cmake_object_order_depends_target_so_long
   DEP_FILE = CMakeFiles/so_long.dir/map_check.c.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu99
@@ -81,7 +87,7 @@ build CMakeFiles/so_long.dir/map_check.c.o: C_COMPILER__so_long_Debug /Users/sum
 #############################################
 # Link the executable so_long
 
-build so_long: C_EXECUTABLE_LINKER__so_long_Debug CMakeFiles/so_long.dir/main.c.o CMakeFiles/so_long.dir/get_next_line.c.o CMakeFiles/so_long.dir/get_next_line_utils.c.o CMakeFiles/so_long.dir/map_check.c.o
+build so_long: C_EXECUTABLE_LINKER__so_long_Debug CMakeFiles/so_long.dir/main.c.o CMakeFiles/so_long.dir/get_next_line.c.o CMakeFiles/so_long.dir/get_next_line_utils.c.o CMakeFiles/so_long.dir/map_load.c.o CMakeFiles/so_long.dir/map_check.c.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
   OBJECT_DIR = CMakeFiles/so_long.dir
   POST_BUILD = :

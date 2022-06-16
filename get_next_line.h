@@ -17,9 +17,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-#ifndef BUFFER_SIZE
+# ifndef BUFFER_SIZE
 # define BUFFER_SIZE 100
-#endif
+# endif
 
 char	*get_next_line(int fd);
 char	*ft_read_buf(int fd, char **save);
