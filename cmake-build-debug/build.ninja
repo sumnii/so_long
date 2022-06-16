@@ -79,6 +79,42 @@ build CMakeFiles/so_long.dir/map_check.c.o: C_COMPILER__so_long_Debug /Users/sum
   OBJECT_DIR = CMakeFiles/so_long.dir
   OBJECT_FILE_DIR = CMakeFiles/so_long.dir
 
+build CMakeFiles/so_long.dir/window.c.o: C_COMPILER__so_long_Debug /Users/sumsong/CLionProjects/so_long/window.c || cmake_object_order_depends_target_so_long
+  DEP_FILE = CMakeFiles/so_long.dir/window.c.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu99
+  OBJECT_DIR = CMakeFiles/so_long.dir
+  OBJECT_FILE_DIR = CMakeFiles/so_long.dir
+
+build CMakeFiles/so_long.dir/mlx/mlx_png.c.o: C_COMPILER__so_long_Debug /Users/sumsong/CLionProjects/so_long/mlx/mlx_png.c || cmake_object_order_depends_target_so_long
+  DEP_FILE = CMakeFiles/so_long.dir/mlx/mlx_png.c.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu99
+  OBJECT_DIR = CMakeFiles/so_long.dir
+  OBJECT_FILE_DIR = CMakeFiles/so_long.dir/mlx
+
+build CMakeFiles/so_long.dir/mlx/mlx_rgb.c.o: C_COMPILER__so_long_Debug /Users/sumsong/CLionProjects/so_long/mlx/mlx_rgb.c || cmake_object_order_depends_target_so_long
+  DEP_FILE = CMakeFiles/so_long.dir/mlx/mlx_rgb.c.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu99
+  OBJECT_DIR = CMakeFiles/so_long.dir
+  OBJECT_FILE_DIR = CMakeFiles/so_long.dir/mlx
+
+build CMakeFiles/so_long.dir/mlx/mlx_string_put.c.o: C_COMPILER__so_long_Debug /Users/sumsong/CLionProjects/so_long/mlx/mlx_string_put.c || cmake_object_order_depends_target_so_long
+  DEP_FILE = CMakeFiles/so_long.dir/mlx/mlx_string_put.c.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu99
+  OBJECT_DIR = CMakeFiles/so_long.dir
+  OBJECT_FILE_DIR = CMakeFiles/so_long.dir/mlx
+
+build CMakeFiles/so_long.dir/mlx/mlx_xpm.c.o: C_COMPILER__so_long_Debug /Users/sumsong/CLionProjects/so_long/mlx/mlx_xpm.c || cmake_object_order_depends_target_so_long
+  DEP_FILE = CMakeFiles/so_long.dir/mlx/mlx_xpm.c.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu99
+  OBJECT_DIR = CMakeFiles/so_long.dir
+  OBJECT_FILE_DIR = CMakeFiles/so_long.dir/mlx
+
+build CMakeFiles/so_long.dir/mlx/font.c.o: C_COMPILER__so_long_Debug /Users/sumsong/CLionProjects/so_long/mlx/font.c || cmake_object_order_depends_target_so_long
+  DEP_FILE = CMakeFiles/so_long.dir/mlx/font.c.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -std=gnu99
+  OBJECT_DIR = CMakeFiles/so_long.dir
+  OBJECT_FILE_DIR = CMakeFiles/so_long.dir/mlx
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target so_long
@@ -87,7 +123,7 @@ build CMakeFiles/so_long.dir/map_check.c.o: C_COMPILER__so_long_Debug /Users/sum
 #############################################
 # Link the executable so_long
 
-build so_long: C_EXECUTABLE_LINKER__so_long_Debug CMakeFiles/so_long.dir/main.c.o CMakeFiles/so_long.dir/get_next_line.c.o CMakeFiles/so_long.dir/get_next_line_utils.c.o CMakeFiles/so_long.dir/map_load.c.o CMakeFiles/so_long.dir/map_check.c.o
+build so_long: C_EXECUTABLE_LINKER__so_long_Debug CMakeFiles/so_long.dir/main.c.o CMakeFiles/so_long.dir/get_next_line.c.o CMakeFiles/so_long.dir/get_next_line_utils.c.o CMakeFiles/so_long.dir/map_load.c.o CMakeFiles/so_long.dir/map_check.c.o CMakeFiles/so_long.dir/window.c.o CMakeFiles/so_long.dir/mlx/mlx_png.c.o CMakeFiles/so_long.dir/mlx/mlx_rgb.c.o CMakeFiles/so_long.dir/mlx/mlx_string_put.c.o CMakeFiles/so_long.dir/mlx/mlx_xpm.c.o CMakeFiles/so_long.dir/mlx/font.c.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
   OBJECT_DIR = CMakeFiles/so_long.dir
   POST_BUILD = :

@@ -1,8 +1,5 @@
-#ifndef SOLONG_H
-# define SOLONG_H
-
-# include "get_next_line.h"
-# include <stdio.h>
+#ifndef MAP_H
+# define MAP_H
 
 typedef struct s_map {
 	int	cnt_1;
@@ -11,8 +8,6 @@ typedef struct s_map {
 	int	cnt_e;
 	int	cnt_p;
 }				t_map;
-
-int		open_map(char *mapfile);
 
 int		map_line_count(int fd);
 void	map_read(int line_cnt, char ***map, int fd);
