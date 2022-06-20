@@ -6,17 +6,12 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:47:00 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/21 00:28:34 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/21 02:04:59 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WINDOW_H
 # define WINDOW_H
-
-# include "solong.h"
-
-# define WIDTH 400
-# define HEIGHT 400
 
 typedef struct s_img
 {
@@ -34,18 +29,28 @@ typedef struct s_tile
 	t_img	t_p;
 }				t_tile;
 
+typedef struct s_player
+{
+	int		step;
+	int		cur_x;
+	int		cur_y;
+}				t_player;
+
 typedef struct s_game
 {
-	void	*mlx;
-	void	*win;
-	t_map	map;
-	t_tile	tile;
+	void		*mlx;
+	void		*win;
+	t_map		map;
+	t_player	p;
+	t_tile		tile;
 }				t_game;
 
-void	make_window(t_game *g);
-int		handle_key(int key_code, t_game *game);
-int		close_window(t_game *game);
+void	make_window(t_game **g);
 void	set_tiles(t_game *game);
+int		set_player(t_game *g);
+
+int		draw_map(t_game *game);
 void	draw_tiles(t_game *game, t_map map);
+void	put_tile(t_game *g, char compo, int i, int j);
 
 #endif

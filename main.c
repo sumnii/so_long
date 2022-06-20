@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:50:20 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/21 00:28:17 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/21 01:23:44 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char *argv[])
 		++y;
 	}
 
-	make_window(game);
+	make_window(&game);
 }
 
 int	open_map(char *map_target)

@@ -6,35 +6,27 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:42:56 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/21 00:28:04 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/21 02:06:36 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/solong.h"
 
-void	make_window(t_game *g)
+void	make_window(t_game **game)
 {
+	t_game	*g;
+
+	g = *game;
 	g->mlx = mlx_init();
 	g->win = mlx_new_window(g->mlx, (g->map.x) * 32, (g->map.y) * 32, "test");
 	set_tiles(g);
-	draw_tiles(g, g->map);
-	mlx_hook(g->win, X_EVENT_KEY_PRESS, 0, &handle_key, &g);
-	mlx_hook(g->win, X_EVENT_CLOSE, 0, &close_window, &g);
+	set_player(g);
+	draw_map(g);
+	printf("(%d, %d) step : %d\n", g->p.cur_x, g->p.cur_y, g->p.step);
+	mlx_hook(g->win, X_EVENT_KEY_PRESS, 0, &handle_key, game);
+	mlx_hook(g->win, X_EVENT_CLOSE, 0, &close_window, g);
+	mlx_loop_hook(g->mlx, &draw_map, g);
 	mlx_loop(g->mlx);
-}
-
-int	handle_key(int key_code, t_game *game)
-{
-	(void)game;
-	if (key_code == KEY_ESC)
-		exit(0);
-	return (0);
-}
-
-int	close_window(t_game *game)
-{
-	(void)game;
-	exit(0);
 }
 
 void	set_tiles(t_game *game)
@@ -51,31 +43,24 @@ void	set_tiles(t_game *game)
 			&game->tile.t_p.img_width, &game->tile.t_p.img_height);
 }
 
-void	draw_tiles(t_game *game, t_map map)
+int	set_player(t_game *g)
 {
 	static int	i = -1;
 	static int	j = -1;
 
-	while (++i < map.y)
+	while (++i < g->map.y)
 	{
 		j = -1;
-		while (++j < map.x)
+		while (++j < g->map.x)
 		{
-			if (map.map[i][j] == '1')
-				mlx_put_image_to_window(game->mlx, game->win,
-					game->tile.t_1.img, j * 32, i * 32);
-			else if (map.map[i][j] == '0')
-				mlx_put_image_to_window(game->mlx, game->win,
-					game->tile.t_0.img, j * 32, i * 32);
-			else if (map.map[i][j] == 'C')
-				mlx_put_image_to_window(game->mlx, game->win,
-					game->tile.t_c.img, j * 32, i * 32);
-			else if (map.map[i][j] == 'E')
-				mlx_put_image_to_window(game->mlx, game->win,
-					game->tile.t_e.img, j * 32, i * 32);
-			else
-				mlx_put_image_to_window(game->mlx, game->win,
-					game->tile.t_p.img, j * 32, i * 32);
+			if (g->map.map[i][j] == 'P')
+			{
+				g->p.cur_x = j;
+				g->p.cur_y = i;
+				g->p.step = 0;
+				return (0);
+			}
 		}
 	}
+	return (1);
 }
