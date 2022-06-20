@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:47:00 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/20 18:49:22 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/20 22:35:08 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ void	make_window(t_map *map_info);
 int		handle_key(int key_code, t_game *game);
 int		close_window(t_game *game);
 void	set_tiles(t_game *game);
+void	draw_tiles(t_game *game, t_map map);
 
 #endif

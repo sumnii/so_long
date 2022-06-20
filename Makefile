@@ -6,7 +6,7 @@
 #    By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 18:52:44 by sumsong           #+#    #+#              #
-#    Updated: 2022/06/20 18:54:18 by sumsong          ###   ########.fr        #
+#    Updated: 2022/06/20 19:30:55 by sumsong          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC1_DIR	= ./
 SRC2_DIR	= ./gnl/
 MLX_DIR		= ./mlx/
 
-MLX_FLAGS	= -L$(MLX_DIR) -lmlx -framework OpenGL -framework Appkit
+MLX_FLAGS	= -L$(MLX_DIR) -lmlx -framework OpenGL -framework Appkit -lz
 
 SRC1		=	main.c map_load.c map_check.c window.c
 SRC2		=	get_next_line.c get_next_line_utils.c
@@ -34,7 +34,7 @@ OBJS		=	$(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
 	make -C $(MLX_DIR)
-	-arch -x86_64 $(CC) -o $@ $(OBJS) $(MLX_FLAGS)
+	-arch -x86_64 $(CC) -o $@ $(MLX_FLAGS) $(OBJS)
 
 all: $(NAME)
 
