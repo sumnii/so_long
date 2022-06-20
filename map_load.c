@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_load.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/20 18:51:17 by sumsong           #+#    #+#             */
+/*   Updated: 2022/06/20 18:51:36 by sumsong          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "header/solong.h"
 
 int	map_line_count(int fd)
@@ -36,16 +48,17 @@ void	map_read(int line_cnt, char ***map, int fd)
 	close(fd);
 }
 
-int	map_load(char *mapfile, char ***map)
+void	map_load(char *map_target, t_map **map_info)
 {
 	int	fd;
 	int	line_cnt;
 
-	fd = open_map(mapfile);
+	fd = open_map(map_target);
 	line_cnt = map_line_count(fd);
 	close(fd);
-	fd = open_map(mapfile);
-	map_read(line_cnt, map, fd);
+	fd = open_map(map_target);
+	map_read(line_cnt, &((*map_info)->map), fd);
 	close(fd);
-	return (line_cnt);
+	map_valid_check(map_info, line_cnt);
+	(*map_info)->y = line_cnt;
 }

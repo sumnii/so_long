@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/06/20 18:52:44 by sumsong           #+#    #+#              #
+#    Updated: 2022/06/20 18:54:18 by sumsong          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		= so_long
 
 CC			= gcc
@@ -5,35 +17,34 @@ CFLAGS		= -Wall -Werror -Wextra
 AR			= ar rcs
 RM			= rm -f
 
-INCS_DIR	= ./header/
-SRCS_DIR	= ./
+SRC1_DIR	= ./
+SRC2_DIR	= ./gnl/
 MLX_DIR		= ./mlx/
 
-INCS		= -I include
-MLX_FLAGS	= -L./mlx -lmlx -framework OpenGL -framework Appkit
+MLX_FLAGS	= -L$(MLX_DIR) -lmlx -framework OpenGL -framework Appkit
 
-SRC			=	main.c map_load.c map_check.c window.c \
-				gnl/get_next_line.c gnl/get_next_line_utils.c
+SRC1		=	main.c map_load.c map_check.c window.c
+SRC2		=	get_next_line.c get_next_line_utils.c
 
-SRCS		=	$(addprefix $(SRCS_DIR), $(SRC))
+SRCS		=	$(addprefix $(SRC1_DIR), $(SRC1)) $(addprefix $(SRC2_DIR), $(SRC2))
 OBJS		=	$(SRCS:.c=.o)
 
-.c.o :
+.c.o:
 	$(CC) $(CFLAGS) -o $@ -c $?
 
-$(NAME) : $(OBJS)
+$(NAME): $(OBJS)
 	make -C $(MLX_DIR)
-	$(CC) -o $(NAME) $(SRCS) -L $(MLX_DIR) -lmlx -framework OpenGL -framework Appkit
+	-arch -x86_64 $(CC) -o $@ $(OBJS) $(MLX_FLAGS)
 
-all : $(NAME)
+all: $(NAME)
 
-clean :
+clean:
 	make -C $(MLX_DIR) clean
 	$(RM) $(OBJS)
 
-fclean : clean
+fclean: clean
 	$(RM) $(NAME)
 
-re : clean all
+re: clean all
 
-PHONY	: all clean fclean re
+PHONY: all clean fclean re

@@ -1,22 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/20 18:49:24 by sumsong           #+#    #+#             */
+/*   Updated: 2022/06/20 18:49:59 by sumsong          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MAP_H
 # define MAP_H
 
+typedef struct s_compo {
+	int		cnt_1;
+	int		cnt_0;
+	int		cnt_c;
+	int		cnt_e;
+	int		cnt_p;
+}			t_compo;
+
 typedef struct s_map {
-	int	cnt_1;
-	int	cnt_0;
-	int	cnt_c;
-	int	cnt_e;
-	int	cnt_p;
+	char	**map;
+	int		x;
+	int		y;
+	t_compo	*compos;
 }				t_map;
 
 int		map_line_count(int fd);
 void	map_read(int line_cnt, char ***map, int fd);
-int		map_load(char *mapfile, char ***map);
+void	map_load(char *mapfile, t_map **map_info);
 
-void	map_valid_check(char *mapfile);
-t_map	*map_components_count(char **map, int line_cnt);
-int		map_components_check(char **map, int line_cnt);
-int		map_wall_check(char **map, int y);
-int		map_rectangle_check(char **map, int y);
+void	map_valid_check(t_map **map_info, int line_cnt);
+t_compo	*map_components_count(t_map **map_info, int line_cnt);
+int		map_components_check(t_map **map_info, int line_cnt);
+int		map_wall_check(t_map **map_info, int y);
+int		map_rectangle_check(t_map **map_info, int y);
 
 #endif
