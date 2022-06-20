@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:50:20 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/20 21:37:24 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/21 00:28:17 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char *argv[])
 {
-	t_map	*map_info;
+	t_game	*game;
 
 //	if (argc != 2)
 //	{
@@ -26,21 +26,20 @@ int	main(int argc, char *argv[])
 	// 빠른 컴파일을 위해 임시로 맵파일명 설정해둠
 	char	*map_target = "./map/test.ber";
 
-	map_info = (t_map *)malloc(sizeof(map_info));
-	map_load(map_target, &map_info);
+	game = (t_game *)malloc(sizeof(t_game));
+	map_load(map_target, &(game->map));
 
 	/* print map */
 	int y = 0;
-	printf("x : %d, y : %d\n", map_info->x, map_info->y);
+	printf("x : %d, y : %d\n", game->map.x, game->map.y);
 	printf("   [0123456789012]\n");
-	while (y < map_info->y)
+	while (y < game->map.y)
 	{
-		printf("%d : %s\n", y, map_info->map[y]);
+		printf("%d : %s\n", y, game->map.map[y]);
 		++y;
 	}
 
-	make_window(map_info);
-	//	draw_assets(map_info);
+	make_window(game);
 }
 
 int	open_map(char *map_target)

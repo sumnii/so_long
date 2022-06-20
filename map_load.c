@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:51:17 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/20 18:51:36 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/21 00:15:42 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	map_read(int line_cnt, char ***map, int fd)
 	close(fd);
 }
 
-void	map_load(char *map_target, t_map **map_info)
+void	map_load(char *map_target, t_map *map_info)
 {
 	int	fd;
 	int	line_cnt;
@@ -57,8 +57,8 @@ void	map_load(char *map_target, t_map **map_info)
 	line_cnt = map_line_count(fd);
 	close(fd);
 	fd = open_map(map_target);
-	map_read(line_cnt, &((*map_info)->map), fd);
+	map_read(line_cnt, &(map_info->map), fd);
 	close(fd);
 	map_valid_check(map_info, line_cnt);
-	(*map_info)->y = line_cnt;
+	map_info->y = line_cnt;
 }

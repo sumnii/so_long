@@ -6,23 +6,21 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:42:56 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/20 22:42:47 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/21 00:28:04 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/solong.h"
 
-void	make_window(t_map *map)
+void	make_window(t_game *g)
 {
-	t_game	g;
-
-	g.mlx = mlx_init();
-	g.win = mlx_new_window(g.mlx, (map->x) * 64, (map->y) * 64, "test");
-	set_tiles(&g);
-	draw_tiles(&g, *map);
-	mlx_hook(g.win, X_EVENT_KEY_PRESS, 0, &handle_key, &g);
-	mlx_hook(g.win, X_EVENT_CLOSE, 0, &close_window, &g);
-	mlx_loop(g.mlx);
+	g->mlx = mlx_init();
+	g->win = mlx_new_window(g->mlx, (g->map.x) * 32, (g->map.y) * 32, "test");
+	set_tiles(g);
+	draw_tiles(g, g->map);
+	mlx_hook(g->win, X_EVENT_KEY_PRESS, 0, &handle_key, &g);
+	mlx_hook(g->win, X_EVENT_CLOSE, 0, &close_window, &g);
+	mlx_loop(g->mlx);
 }
 
 int	handle_key(int key_code, t_game *game)
@@ -65,19 +63,19 @@ void	draw_tiles(t_game *game, t_map map)
 		{
 			if (map.map[i][j] == '1')
 				mlx_put_image_to_window(game->mlx, game->win,
-					game->tile.t_1.img, j * 64, i * 64);
+					game->tile.t_1.img, j * 32, i * 32);
 			else if (map.map[i][j] == '0')
 				mlx_put_image_to_window(game->mlx, game->win,
-					game->tile.t_0.img, j * 64, i * 64);
+					game->tile.t_0.img, j * 32, i * 32);
 			else if (map.map[i][j] == 'C')
 				mlx_put_image_to_window(game->mlx, game->win,
-					game->tile.t_c.img, j * 64, i * 64);
+					game->tile.t_c.img, j * 32, i * 32);
 			else if (map.map[i][j] == 'E')
 				mlx_put_image_to_window(game->mlx, game->win,
-					game->tile.t_e.img, j * 64, i * 64);
+					game->tile.t_e.img, j * 32, i * 32);
 			else
 				mlx_put_image_to_window(game->mlx, game->win,
-					game->tile.t_p.img, j * 64, i * 64);
+					game->tile.t_p.img, j * 32, i * 32);
 		}
 	}
 }
