@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:42:56 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/21 02:06:36 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/21 15:14:16 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	make_window(t_game **game)
 	set_tiles(g);
 	set_player(g);
 	draw_map(g);
-	printf("(%d, %d) step : %d\n", g->p.cur_x, g->p.cur_y, g->p.step);
 	mlx_hook(g->win, X_EVENT_KEY_PRESS, 0, &handle_key, game);
 	mlx_hook(g->win, X_EVENT_CLOSE, 0, &close_window, g);
 	mlx_loop_hook(g->mlx, &draw_map, g);
@@ -63,4 +62,10 @@ int	set_player(t_game *g)
 		}
 	}
 	return (1);
+}
+
+int	close_window(t_game *game)
+{
+	(void)game;
+	exit(0);
 }

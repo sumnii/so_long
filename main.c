@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:50:20 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/21 01:23:44 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/21 15:32:56 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char *argv[])
 	(void)argc;
 	(void)argv[1];
 	// 빠른 컴파일을 위해 임시로 맵파일명 설정해둠
-	char	*map_target = "./map/test.ber";
+	char	*map_target = "./map/test2.ber";
 
 	game = (t_game *)malloc(sizeof(t_game));
 	map_load(map_target, &(game->map));

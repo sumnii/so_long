@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:47:00 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/21 02:04:59 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/21 15:15:03 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct s_game
 void	make_window(t_game **g);
 void	set_tiles(t_game *game);
 int		set_player(t_game *g);
+int		close_window(t_game *game);
 
 int		draw_map(t_game *game);
 void	draw_tiles(t_game *game, t_map map);
