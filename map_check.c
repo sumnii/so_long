@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:50:35 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/21 00:25:18 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 01:50:33 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	map_valid_check(t_map *map_info, int line_cnt)
 	}
 	else if (map_components_check(map_info, line_cnt) == -1)
 	{
-		// 0, 1, C, E, P로만 구성되었는지, C, E, P가 최소 하나 이상 있는지
 		printf("Error!\nincorrect components.\n");
 		exit(1);
 	}
@@ -30,6 +29,47 @@ void	map_valid_check(t_map *map_info, int line_cnt)
 		printf("Error!\nisn't surrounded.\n");
 		exit(1);
 	}
+}
+
+int	map_rectangle_check(t_map *map_info, int y)
+{
+	int	x;
+	int	x_cnt;
+	int	cur_cnt;
+
+	x = -1;
+	x_cnt = 0;
+	while (map_info->map[y][++x])
+		++x_cnt;
+	--y;
+	while (y >= 0)
+	{
+		cur_cnt = 0;
+		x = 0;
+		while (map_info->map[y][x])
+		{
+			++cur_cnt;
+			++x;
+		}
+		if (x_cnt != cur_cnt)
+			return (-1);
+		--y;
+	}
+	map_info->x = x_cnt;
+	return (1);
+}
+
+int	map_components_check(t_map *map_info, int line_cnt)
+{
+	t_compo	*compo;
+
+	compo = map_components_count(map_info, line_cnt);
+	if (compo == NULL)
+		return (-1);
+	if (compo->cnt_1 && compo->cnt_c && compo->cnt_e && compo->cnt_p)
+		return (1);
+	else
+		return (-1);
 }
 
 t_compo	*map_components_count(t_map *map_info, int line_cnt)
@@ -59,19 +99,6 @@ t_compo	*map_components_count(t_map *map_info, int line_cnt)
 	return (&(map_info->compos));
 }
 
-int	map_components_check(t_map *map_info, int line_cnt)
-{
-	t_compo	*compo;
-
-	compo = map_components_count(map_info, line_cnt);
-	if (compo == NULL)
-		return (-1);
-	if (compo->cnt_1 && compo->cnt_c && compo->cnt_e && compo->cnt_p)
-		return (1);
-	else
-		return (-1);
-}
-
 int	map_wall_check(t_map *map_info, int y)
 {
 	int	x;
@@ -90,33 +117,5 @@ int	map_wall_check(t_map *map_info, int y)
 			return (-1);
 		++x;
 	}
-	return (1);
-}
-
-int	map_rectangle_check(t_map *map_info, int y)
-{
-	int	x;
-	int	x_cnt;
-	int	cur_cnt;
-
-	x = -1;
-	x_cnt = 0;
-	while (map_info->map[y][++x])
-		++x_cnt;
-	--y;
-	while (y >= 0)
-	{
-		cur_cnt = 0;
-		x = 0;
-		while (map_info->map[y][x])
-		{
-			++cur_cnt;
-			++x;
-		}
-		if (x_cnt != cur_cnt)
-			return (-1);
-		--y;
-	}
-	map_info->x = x_cnt;
 	return (1);
 }

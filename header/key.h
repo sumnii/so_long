@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:50:02 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/21 15:24:04 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 01:59:18 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ void	press_key_up(t_game **g);
 void	press_key_down(t_game **g);
 void	press_key_left(t_game **g);
 void	press_key_right(t_game **g);
-int		close_window(t_game *game);
 
 #endif

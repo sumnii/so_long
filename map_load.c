@@ -6,22 +6,54 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:51:17 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/21 00:15:42 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 01:47:39 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header/solong.h"
 
+void	map_load(char *map_target, t_map *map_info)
+{
+	int	fd;
+	int	line_cnt;
+
+	fd = open_map(map_target);
+	line_cnt = map_line_count(fd);
+	close(fd);
+	fd = open_map(map_target);
+	map_read(line_cnt, &(map_info->map), fd);
+	close(fd);
+	map_valid_check(map_info, line_cnt);
+	map_info->y = line_cnt;
+}
+
+int	open_map(char *map_target)
+{
+	int	fd;
+
+	fd = open(map_target, O_RDONLY);
+	if (fd == -1)
+	{
+		printf("Error!\nmap open error. check the map file's name.\n");
+		exit(1);
+	}
+	return (fd);
+}
+
 int	map_line_count(int fd)
 {
-	int	checker;
-	int	line_cnt;
+	int		checker;
+	int		line_cnt;
+	char	*line;
 
 	checker = 0;
 	line_cnt = 0;
+	line = NULL;
 	while (checker == 0)
 	{
-		if (get_next_line(fd) != 0)
+		free(line);
+		line = get_next_line(fd);
+		if (line != 0)
 			++line_cnt;
 		else
 			checker = -1;
@@ -41,24 +73,12 @@ void	map_read(int line_cnt, char ***map, int fd)
 		if ((*map)[y] == NULL)
 		{
 			printf("gnl func error.\n");
+			while (0 <= y)
+				free((*map)[y]);
+			free(*map);
 			exit(1);
 		}
 		++y;
 	}
 	close(fd);
-}
-
-void	map_load(char *map_target, t_map *map_info)
-{
-	int	fd;
-	int	line_cnt;
-
-	fd = open_map(map_target);
-	line_cnt = map_line_count(fd);
-	close(fd);
-	fd = open_map(map_target);
-	map_read(line_cnt, &(map_info->map), fd);
-	close(fd);
-	map_valid_check(map_info, line_cnt);
-	map_info->y = line_cnt;
 }

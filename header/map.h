@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:49:24 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/21 00:37:15 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 01:59:02 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,15 @@ typedef struct s_map {
 	t_compo	compos;
 }				t_map;
 
+void	map_load(char *mapfile, t_map *map_info);
+int		open_map(char *map_target);
 int		map_line_count(int fd);
 void	map_read(int line_cnt, char ***map, int fd);
-void	map_load(char *mapfile, t_map *map_info);
 
 void	map_valid_check(t_map *map_info, int line_cnt);
-t_compo	*map_components_count(t_map *map_info, int line_cnt);
-int		map_components_check(t_map *map_info, int line_cnt);
-int		map_wall_check(t_map *map_info, int y);
 int		map_rectangle_check(t_map *map_info, int y);
+int		map_components_check(t_map *map_info, int line_cnt);
+t_compo	*map_components_count(t_map *map_info, int line_cnt);
+int		map_wall_check(t_map *map_info, int y);
 
 #endif
