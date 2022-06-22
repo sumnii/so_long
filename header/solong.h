@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:49:43 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 18:20:46 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/23 00:23:11 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@
 # include "window.h"
 # include "key.h"
 # include <stdio.h>
+
+int	ber_check(char *map_file);
 
 #endif
