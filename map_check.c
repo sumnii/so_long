@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:50:35 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 16:04:54 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 16:21:12 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,9 @@ int	map_components_check(t_map *map_info, int line_cnt)
 	compo = map_components_count(map_info, line_cnt);
 	if (compo == NULL)
 		return (-1);
-	if (compo->cnt_1 && compo->cnt_c && compo->cnt_e && compo->cnt_p)
+	else if (compo->cnt_p > 1)
+		return (-1);
+	else if (compo->cnt_c && compo->cnt_e && compo->cnt_p)
 		return (1);
 	else
 		return (-1);
@@ -79,7 +81,6 @@ t_compo	*map_components_count(t_map *map_info, int line_cnt)
 
 	while (++y < line_cnt)
 	{
-		printf("%d %d %d %d %d\n", map_info->compos.cnt_0, map_info->compos.cnt_1, map_info->compos.cnt_c, map_info->compos.cnt_e, map_info->compos.cnt_p);
 		x = -1;
 		while (map_info->map[y][++x])
 		{
