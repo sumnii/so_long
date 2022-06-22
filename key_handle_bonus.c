@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 00:32:33 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 03:40:05 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 16:32:55 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,11 @@ void	press_key_up(t_game **g)
 	else if ((*g)->map.map[y - 1][x] == 'E')
 	{
 		if ((*g)->map.compos.cnt_c == 0)
+		{
+			printf("Success in %d steps!\n", (*g)->p.step + 1);
 			close_window(g);
+		}
+		printf("You need to collect more firewood.\n");
 	}
 }
 
@@ -77,7 +81,11 @@ void	press_key_down(t_game **g)
 	else if ((*g)->map.map[y + 1][x] == 'E')
 	{
 		if ((*g)->map.compos.cnt_c == 0)
-			exit(0);
+		{
+			printf("Success in %d steps!\n", (*g)->p.step + 1);
+			close_window(g);
+		}
+		printf("You need to collect more firewood.\n");
 	}
 }
 
@@ -101,7 +109,11 @@ void	press_key_left(t_game **g)
 	else if ((*g)->map.map[y][x - 1] == 'E')
 	{
 		if ((*g)->map.compos.cnt_c == 0)
-			exit(0);
+		{
+			printf("Success in %d steps!\n", (*g)->p.step + 1);
+			close_window(g);
+		}
+		printf("You need to collect more firewood.\n");
 	}
 }
 
@@ -125,6 +137,10 @@ void	press_key_right(t_game **g)
 	else if ((*g)->map.map[y][x + 1] == 'E')
 	{
 		if ((*g)->map.compos.cnt_c == 0)
-			exit(0);
+		{
+			printf("Success in %d steps!\n", (*g)->p.step + 1);
+			close_window(g);
+		}
+		printf("You need to collect more firewood.\n");
 	}
 }

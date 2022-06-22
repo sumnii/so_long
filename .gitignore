@@ -1,5 +1,5 @@
 *.o
-cmake-build-debug/
+cmake-build-debug/git a
 *.a
 so_long
 so_long bonus
