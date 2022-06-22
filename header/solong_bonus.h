@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:49:43 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 02:43:04 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 17:37:30 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../mlx/mlx.h"
 # include "../gnl/get_next_line.h"
+# include "../libft/libft.h"
 # include "map_bonus.h"
 # include "window_bonus.h"
 # include "key_bonus.h"

@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 00:32:33 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 16:32:55 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 18:22:56 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	press_key_up(t_game **g)
 		(*g)->p.step += 1;
 		(*g)->map.map[y][x] = '0';
 		(*g)->map.map[y - 1][x] = 'P';
-		printf("step : %d.. %d left.\n", (*g)->p.step, (*g)->map.compos.cnt_c);
 	}
 	else if ((*g)->map.map[y - 1][x] == 'E')
 	{
@@ -76,7 +75,6 @@ void	press_key_down(t_game **g)
 		(*g)->p.step += 1;
 		(*g)->map.map[y][x] = '0';
 		(*g)->map.map[y + 1][x] = 'P';
-		printf("step : %d.. %d left.\n", (*g)->p.step, (*g)->map.compos.cnt_c);
 	}
 	else if ((*g)->map.map[y + 1][x] == 'E')
 	{
@@ -104,7 +102,6 @@ void	press_key_left(t_game **g)
 		(*g)->p.step += 1;
 		(*g)->map.map[y][x] = '0';
 		(*g)->map.map[y][x - 1] = 'P';
-		printf("step : %d.. %d left.\n", (*g)->p.step, (*g)->map.compos.cnt_c);
 	}
 	else if ((*g)->map.map[y][x - 1] == 'E')
 	{
@@ -132,7 +129,6 @@ void	press_key_right(t_game **g)
 		(*g)->p.step += 1;
 		(*g)->map.map[y][x] = '0';
 		(*g)->map.map[y][x + 1] = 'P';
-		printf("step : %d.. %d left.\n", (*g)->p.step, (*g)->map.compos.cnt_c);
 	}
 	else if ((*g)->map.map[y][x + 1] == 'E')
 	{

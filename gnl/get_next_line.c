@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 16:58:08 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 02:19:06 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 17:40:14 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,19 @@ char	*ft_read_buf(int fd, char **save)
 	line = NULL;
 	while (ft_find_lf(line) == -1)
 	{
-		buf = (char *)ft_calloc(sizeof(char), BUFFER_SIZE + 1);
+		buf = (char *)gnl_calloc(sizeof(char), BUFFER_SIZE + 1);
 		if (!buf)
 			return (NULL);
 		read_size = read(fd, buf, BUFFER_SIZE);
 		if (read_size <= 0 && !line && !(*save))
 			return (ft_close(NULL, &buf));
-		line = ft_strjoin(&line, &buf);
+		line = gnl_strjoin(&line, &buf);
 		if (!line)
 			return (NULL);
 		if (read_size < BUFFER_SIZE)
 		{
 			free(buf);
-			return (ft_strjoin(save, &line));
+			return (gnl_strjoin(save, &line));
 		}
 	}
 	return (line);
@@ -70,8 +70,8 @@ char	*ft_cut_line(char **line, char **save)
 	before_lf = ft_idx_dup(*line, 0, lf_i - 1);
 	if (!before_lf)
 		return (ft_close(line, save));
-	return_line = ft_strjoin(save, &before_lf);
-	*save = ft_idx_dup(*line, lf_i + 1, ft_strlen(*line) - 1);
+	return_line = gnl_strjoin(save, &before_lf);
+	*save = ft_idx_dup(*line, lf_i + 1, gnl_strlen(*line) - 1);
 	free(*line);
 	return (return_line);
 }
@@ -86,7 +86,7 @@ char	*ft_cut_save(char **save)
 	return_line = ft_idx_dup(*save, 0, lf_i - 1);
 	if (!return_line)
 		return (ft_close(NULL, save));
-	after_lf = ft_idx_dup(*save, lf_i + 1, ft_strlen(*save) - 1);
+	after_lf = ft_idx_dup(*save, lf_i + 1, gnl_strlen(*save) - 1);
 	free(*save);
 	*save = after_lf;
 	return (return_line);

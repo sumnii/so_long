@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 16:58:25 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 02:19:56 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 17:39:30 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ char	*ft_cut_line(char **line, char **save);
 char	*ft_cut_save(char **save);
 void	*ft_close(char **line, char **save);
 
-size_t	ft_strlen(char *str);
-void	*ft_calloc(size_t size, size_t count);
+size_t	gnl_strlen(char *str);
+void	*gnl_calloc(size_t size, size_t count);
 int		ft_find_lf(char *str);
-char	*ft_strjoin(char **line, char **buf);
+char	*gnl_strjoin(char **line, char **buf);
 char	*ft_idx_dup(char *str, size_t i, size_t j);
 
 #endif
