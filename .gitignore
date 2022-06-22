@@ -2,5 +2,5 @@
 cmake-build-debug/
 *.a
 so_long
-so_long bonus
+so_long_bonus
 CMakeLists.txt
