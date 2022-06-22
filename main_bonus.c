@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:50:20 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 21:09:06 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 23:53:41 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,9 @@ int	main(int argc, char *argv[])
 		printf("type => \"./so_long <map file>\"\n");
 		exit(1);
 	}
-	// printf("main");
 	game = (t_game *)ft_calloc(sizeof(t_game), 1);
 	if (!game)
 		return (1);
-	// printf(" - calloc");
 	map_load(argv[1], &(game->map));
-	// printf(" - map_load");
 	make_window(game);
 }

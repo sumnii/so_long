@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:49:24 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 18:14:19 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/23 00:05:04 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ void	map_valid_check(t_map *map_info, int line_cnt);
 int		map_rectangle_check(t_map *map_info, int y);
 int		map_components_check(t_map *map_info, int line_cnt);
 t_compo	*map_components_count(t_map *map_info, int line_cnt);
-int		map_wall_check(t_map *map_info, int y);
+int		map_wall_check(t_map *map_info);
 
 #endif

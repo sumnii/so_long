@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:50:35 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 20:49:02 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/23 00:13:32 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	map_valid_check(t_map *map_info, int line_cnt)
 		printf("Error!\nincorrect components.\n");
 		exit(1);
 	}
-	else if (map_wall_check(map_info, line_cnt - 1) == -1)
+	else if (map_wall_check(map_info) == -1)
 	{
 		printf("Error!\nisn't surrounded.\n");
 		exit(1);
@@ -98,23 +98,24 @@ t_compo	*map_components_count(t_map *map_info, int line_cnt)
 	return (&(map_info->compos));
 }
 
-int	map_wall_check(t_map *map_info, int y)
+int	map_wall_check(t_map *map_info)
 {
 	int	x;
+	int	y;
 
-	x = 0;
-	while (map_info->map[0][x])
+	y = 0;
+	while (y < map_info->y)
 	{
-		if (map_info->map[0][x] != '1')
-			return (-1);
-		++x;
-	}
-	x = 0;
-	while (map_info->map[y][x])
-	{
-		if (map_info->map[y][x] != '1')
-			return (-1);
-		++x;
+		x = 0;
+		while (x < map_info->x)
+		{
+			if (x == 0 || x == map_info->x - 1 || y == 0
+				|| y == map_info->y - 1)
+				if (map_info->map[y][x] != '1')
+					return (-1);
+			++x;
+		}
+		++y;
 	}
 	return (1);
 }
