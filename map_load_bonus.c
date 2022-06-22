@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_load.c                                         :+:      :+:    :+:   */
+/*   map_load_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:51:17 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 16:01:09 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 16:02:06 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header/solong.h"
+#include "header/solong_bonus.h"
 
 void	map_load(char *map_target, t_map *map_info)
 {

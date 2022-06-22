@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   window.h                                           :+:      :+:    :+:   */
+/*   window_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:47:00 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 03:20:58 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 15:41:49 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WINDOW_H
-# define WINDOW_H
+#ifndef WINDOW_BONUS_H
+# define WINDOW_BONUS_H
 
 typedef struct s_player
 {
@@ -34,6 +34,8 @@ typedef struct s_tile
 	t_img	t_c;
 	t_img	t_e;
 	t_img	t_p;
+	t_img	t_x;
+	t_img	back;
 }				t_tile;
 
 typedef struct s_game
@@ -51,6 +53,7 @@ int		set_player(t_game *g);
 int		close_window(t_game **game);
 
 int		draw_map(t_game *game);
+void	draw_step(t_game *g);
 void	draw_tiles(t_game *game, t_map map);
 void	put_tile(t_game *g, char compo, int i, int j);
 
