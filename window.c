@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:42:56 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 02:16:53 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 21:10:13 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,10 @@ void	set_tiles(t_game *game)
 
 int	set_player(t_game *g)
 {
-	static int	i = -1;
-	static int	j = -1;
+	int	i;
+	int	j;
 
+	i = -1;
 	while (++i < g->map.y)
 	{
 		j = -1;
@@ -63,7 +64,13 @@ int	set_player(t_game *g)
 
 int	close_window(t_game **game)
 {
-	(void)game;
+	int	y;
+
+	y = (*game)->map.y;
+	while (--y >= 0)
+		free((*game)->map.map[y]);
+	free((*game)->map.map);
+	free(*game);
 	system("leaks so_long");
 	exit(0);
 }

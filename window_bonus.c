@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:42:56 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 18:36:42 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 21:08:57 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,20 @@
 
 void	make_window(t_game *g)
 {
+	// printf("\n-> make_window");
 	g->mlx = mlx_init();
+	// printf(" - mlx_init");
 	g->win = mlx_new_window(g->mlx, (g->map.x) * 32,
 			(g->map.y) * 32 + 32, "test");
+	// printf(" - mlx_new_window");
 	set_tiles(g);
+	// printf(" - set_tiles");
+	set_player_sprite(g);
+	// printf(" - set sprite");
 	set_player(g);
+	// printf(" - set player");
 	draw_map(g);
+	// printf(" - draw map");
 	mlx_hook(g->win, X_EVENT_KEY_PRESS, 0, &handle_key, &g);
 	mlx_hook(g->win, X_EVENT_CLOSE, 0, &close_window, &g);
 	mlx_loop_hook(g->mlx, &draw_map, g);
@@ -44,9 +52,10 @@ void	set_tiles(t_game *game)
 
 int	set_player(t_game *g)
 {
-	static int	i = -1;
-	static int	j = -1;
+	int	i;
+	int	j;
 
+	i = -1;
 	while (++i < g->map.y)
 	{
 		j = -1;
@@ -66,7 +75,13 @@ int	set_player(t_game *g)
 
 int	close_window(t_game **game)
 {
-	(void)game;
-	// system("leaks so_long");
+	int	y;
+
+	y = (*game)->map.y;
+	while (--y >= 0)
+		free((*game)->map.map[y]);
+	free((*game)->map.map);
+	free(*game);
+	system("leaks so_long");
 	exit(0);
 }

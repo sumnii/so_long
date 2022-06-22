@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:50:35 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 16:20:51 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 20:49:12 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,10 @@ int	map_components_check(t_map *map_info, int line_cnt)
 
 t_compo	*map_components_count(t_map *map_info, int line_cnt)
 {
-	static int	x = -1;
-	static int	y = -1;
+	int	x;
+	int	y;
 
+	y = -1;
 	while (++y < line_cnt)
 	{
 		x = -1;

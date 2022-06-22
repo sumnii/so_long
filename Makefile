@@ -6,7 +6,7 @@
 #    By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 18:52:44 by sumsong           #+#    #+#              #
-#    Updated: 2022/06/22 15:42:21 by sumsong          ###   ########.fr        #
+#    Updated: 2022/06/22 21:03:27 by sumsong          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ LIBFT_FLAGS	=	-L$(LIBFT_DIR) -lft
 SRC			=	main.c map_load.c map_check.c window.c key_handle.c draw_map.c
 GNL_SRC		=	get_next_line.c get_next_line_utils.c
 BONUS_SRC	=	main_bonus.c map_load_bonus.c map_check_bonus.c window_bonus.c \
-				key_handle_bonus.c draw_map_bonus.c
+				key_handle_bonus.c draw_map_bonus.c set_sprite_bonus.c
 
 SRCS		=	$(addprefix $(SRC_DIR), $(SRC)) $(addprefix $(GNL_DIR), $(GNL_SRC))
 OBJS		=	$(SRCS:.c=.o)

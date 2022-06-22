@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:47:00 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 18:22:27 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 21:02:47 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,24 @@ typedef struct s_img
 	int		img_height;
 }				t_img;
 
+typedef struct s_sprite
+{
+	t_img	p_w[4];
+	t_img	p_a[4];
+	t_img	p_s[4];
+	t_img	p_d[4];
+}				t_sprite;
+
 typedef struct s_tile
 {
-	t_img	t_1;
-	t_img	t_0;
-	t_img	t_c;
-	t_img	t_e;
-	t_img	t_p;
-	t_img	t_x;
-	t_img	back;
+	t_img		t_1;
+	t_img		t_0;
+	t_img		t_c;
+	t_img		t_e;
+	t_img		t_p;
+	t_img		t_x;
+	t_img		back;
+	t_sprite	spr;
 }				t_tile;
 
 typedef struct s_game
@@ -52,9 +61,15 @@ void	set_tiles(t_game *game);
 int		set_player(t_game *g);
 int		close_window(t_game **game);
 
+void	set_player_sprite(t_game *g);
+void	set_sprite_w(t_game *g);
+void	set_sprite_s(t_game *g);
+void	set_sprite_a(t_game *g);
+void	set_sprite_d(t_game *g);
+
 int		draw_map(t_game *game);
-void	draw_step(t_game *g);
 void	draw_tiles(t_game *game, t_map map);
 void	put_tile(t_game *g, char compo, int i, int j);
+void	draw_step(t_game *g);
 
 #endif

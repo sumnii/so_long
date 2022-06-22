@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:51:17 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 16:01:09 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 20:50:53 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void	map_read(int line_cnt, char ***map, int fd)
 
 	y = 0;
 	*map = (char **)malloc(sizeof(char *) * line_cnt);
+	if (!(*map))
+		exit(1);
 	while (y < line_cnt)
 	{
 		(*map)[y] = get_next_line(fd);

@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 02:02:11 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 18:22:38 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 20:36:46 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,6 @@ int	draw_map(t_game *game)
 	draw_tiles(game, game->map);
 	draw_step(game);
 	return (0);
-}
-
-void	draw_step(t_game *g)
-{
-	char	*step;
-	int		x;
-
-	step = ft_itoa(g->p.step);
-	g->tile.back.img = mlx_xpm_file_to_image(g->mlx, "./assets/back.xpm",
-			&g->tile.back.img_width, &g->tile.back.img_height);
-	x = -1;
-	while (++x < g->map.x)
-	{
-		mlx_put_image_to_window(g->mlx, g->win,
-			g->tile.back.img, x * 32, g->map.y * 32);
-	}
-	mlx_string_put(g->mlx, g->win, 16, g->map.y * 32 + 16, 0xffffff, "step");
-	mlx_string_put(g->mlx, g->win, 50, g->map.y * 32 + 16, 0xffffff, step);
-	free(step);
 }
 
 void	draw_tiles(t_game *g, t_map map)
@@ -76,4 +57,23 @@ void	put_tile(t_game *g, char compo, int i, int j)
 	else
 		mlx_put_image_to_window(g->mlx, g->win,
 			g->tile.t_x.img, j * 32, i * 32);
+}
+
+void	draw_step(t_game *g)
+{
+	char	*step;
+	int		x;
+
+	step = ft_itoa(g->p.step);
+	g->tile.back.img = mlx_xpm_file_to_image(g->mlx, "./assets/back.xpm",
+			&g->tile.back.img_width, &g->tile.back.img_height);
+	x = -1;
+	while (++x < g->map.x)
+	{
+		mlx_put_image_to_window(g->mlx, g->win,
+			g->tile.back.img, x * 32, g->map.y * 32);
+	}
+	mlx_string_put(g->mlx, g->win, 16, g->map.y * 32 + 16, 0xffffff, "step");
+	mlx_string_put(g->mlx, g->win, 50, g->map.y * 32 + 16, 0xffffff, step);
+	free(step);
 }

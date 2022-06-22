@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 00:32:33 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 18:35:52 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/22 21:01:07 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	press_key_up(t_game **g)
 		(*g)->p.step += 1;
 		(*g)->map.map[y][x] = '0';
 		(*g)->map.map[y - 1][x] = 'P';
+		(*g)->tile.t_p = (*g)->tile.spr.p_w[(*g)->p.step % 4];
 	}
 	else if ((*g)->map.map[y - 1][x] == 'E' && (*g)->map.compos.cnt_c != 0)
 		printf("You need to collect more firewood.\n");
@@ -76,6 +77,7 @@ void	press_key_down(t_game **g)
 		(*g)->p.step += 1;
 		(*g)->map.map[y][x] = '0';
 		(*g)->map.map[y + 1][x] = 'P';
+		(*g)->tile.t_p = (*g)->tile.spr.p_s[(*g)->p.step % 4];
 	}
 	else if ((*g)->map.map[y + 1][x] == 'E' && (*g)->map.compos.cnt_c != 0)
 		printf("You need to collect more firewood.\n");
@@ -104,6 +106,7 @@ void	press_key_left(t_game **g)
 		(*g)->p.step += 1;
 		(*g)->map.map[y][x] = '0';
 		(*g)->map.map[y][x - 1] = 'P';
+		(*g)->tile.t_p = (*g)->tile.spr.p_a[(*g)->p.step % 4];
 	}
 	else if ((*g)->map.map[y][x - 1] == 'E' && (*g)->map.compos.cnt_c != 0)
 		printf("You need to collect more firewood.\n");
@@ -132,6 +135,7 @@ void	press_key_right(t_game **g)
 		(*g)->p.step += 1;
 		(*g)->map.map[y][x] = '0';
 		(*g)->map.map[y][x + 1] = 'P';
+		(*g)->tile.t_p = (*g)->tile.spr.p_d[(*g)->p.step % 4];
 	}
 	else if ((*g)->map.map[y][x + 1] == 'E' && (*g)->map.compos.cnt_c != 0)
 		printf("You need to collect more firewood.\n");
