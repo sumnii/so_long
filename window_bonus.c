@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:42:56 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 23:54:14 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/23 16:40:24 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ void	set_tiles(t_game *game)
 			&game->tile.t_e.img_width, &game->tile.t_e.img_height);
 	game->tile.t_p.img = mlx_xpm_file_to_image(game->mlx, "./assets/p.xpm",
 			&game->tile.t_p.img_width, &game->tile.t_p.img_height);
-	game->tile.t_x.img = mlx_xpm_file_to_image(game->mlx, "./assets/x.xpm",
-			&game->tile.t_x.img_width, &game->tile.t_x.img_height);
+	game->tile.t_x[0].img = mlx_xpm_file_to_image(game->mlx, "./assets/x1.xpm",
+			&game->tile.t_x[0].img_width, &game->tile.t_x[0].img_height);
+	game->tile.t_x[1].img = mlx_xpm_file_to_image(game->mlx, "./assets/x2.xpm",
+			&game->tile.t_x[1].img_width, &game->tile.t_x[1].img_height);
 }
 
 int	set_player(t_game *g)

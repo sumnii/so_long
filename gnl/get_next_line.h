@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 16:58:25 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 17:39:30 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/23 17:18:03 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 100
+#  define BUFFER_SIZE 100
 # endif
 
 char	*get_next_line(int fd);

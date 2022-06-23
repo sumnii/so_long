@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 02:02:11 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 20:36:46 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/23 16:44:47 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,21 @@ void	put_tile(t_game *g, char compo, int i, int j)
 		mlx_put_image_to_window(g->mlx, g->win,
 			g->tile.t_p.img, j * 32, i * 32);
 	else
+		enemy_sprite(g, i, j);
+}
+
+void	enemy_sprite(t_game *g, int i, int j)
+{
+	static int	cnt = -1;
+
+	if (cnt++ < 20)
 		mlx_put_image_to_window(g->mlx, g->win,
-			g->tile.t_x.img, j * 32, i * 32);
+			g->tile.t_x[0].img, j * 32, i * 32);
+	else if (40 < cnt)
+		cnt = -1;
+	else
+		mlx_put_image_to_window(g->mlx, g->win,
+			g->tile.t_x[1].img, j * 32, i * 32);
 }
 
 void	draw_step(t_game *g)
