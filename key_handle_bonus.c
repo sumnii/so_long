@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 00:32:33 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/23 17:15:59 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/27 16:22:07 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,19 @@ int	handle_key(int key_code, t_game **g)
 {
 	if (key_code == KEY_ESC)
 		close_window(g);
-	if (key_code == KEY_W || key_code == KEY_S || key_code == KEY_A
-		|| key_code == KEY_D)
-	{
-		if (key_code == KEY_W)
-			press_key_up(g);
-		else if (key_code == KEY_S)
-			press_key_down(g);
-		else if (key_code == KEY_A)
-			press_key_left(g);
-		else
-			press_key_right(g);
-	}
+	else if (key_code == KEY_W || key_code == KEY_UP)
+		press_key_up(g);
+	else if (key_code == KEY_S || key_code == KEY_DOWN)
+		press_key_down(g);
+	else if (key_code == KEY_A || key_code == KEY_LEFT)
+		press_key_left(g);
+	else if (key_code == KEY_D || key_code == KEY_RIGHT)
+		press_key_right(g);
 	else
-		printf("It's invalid key. You can press only W, A, S, D and ESC.\n");
+	{
+		printf("It's invalid key.");
+		printf("You can press only W, A, S, D, Arrow keys and ESC.\n");
+	}
 	return (0);
 }
 
