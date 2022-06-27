@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:47:00 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/23 16:40:52 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/27 16:02:01 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	set_sprite_d(t_game *g);
 int		draw_map(t_game *game);
 void	draw_tiles(t_game *game, t_map map);
 void	enemy_sprite(t_game *g, int i, int j);
-void	put_tile(t_game *g, char compo, int i, int j);
+void	put_tile(t_game *g, int i, int j, int flag);
 void	draw_step(t_game *g);
 
 #endif

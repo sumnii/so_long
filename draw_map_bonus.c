@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 02:02:11 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/27 15:55:13 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/27 16:02:44 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ int	draw_map(t_game *game)
 
 void	draw_tiles(t_game *g, t_map map)
 {
-	int	i;
-	int	j;
+	static int	init_flag = 0;
+	int			i;
+	int			j;
 
 	i = 0;
 	while (i < map.y)
@@ -30,31 +31,33 @@ void	draw_tiles(t_game *g, t_map map)
 		j = 0;
 		while (j < map.x)
 		{
-			put_tile(g, map.map[i][j], i, j);
+			put_tile(g, i, j, init_flag);
 			++j;
 		}
 		++i;
 	}
+	if (init_flag == 0)
+		++init_flag;
 }
 
-void	put_tile(t_game *g, char compo, int i, int j)
+void	put_tile(t_game *g, int i, int j, int flag)
 {	
-	if (compo == '1')
+	if (g->map.map[i][j] == '1' && flag == 0)
 		mlx_put_image_to_window(g->mlx, g->win,
 			g->tile.t_1.img, j * 32, i * 32);
-	else if (compo == '0')
+	else if (g->map.map[i][j] == '0')
 		mlx_put_image_to_window(g->mlx, g->win,
 			g->tile.t_0.img, j * 32, i * 32);
-	else if (compo == 'C')
+	else if (g->map.map[i][j] == 'C')
 		mlx_put_image_to_window(g->mlx, g->win,
 			g->tile.t_c.img, j * 32, i * 32);
-	else if (compo == 'E')
+	else if (g->map.map[i][j] == 'E' && flag == 0)
 		mlx_put_image_to_window(g->mlx, g->win,
 			g->tile.t_e.img, j * 32, i * 32);
-	else if (compo == 'P')
+	else if (g->map.map[i][j] == 'P')
 		mlx_put_image_to_window(g->mlx, g->win,
 			g->tile.t_p.img, j * 32, i * 32);
-	else
+	else if (g->map.map[i][j] == 'X')
 		enemy_sprite(g, i, j);
 }
 
