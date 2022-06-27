@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 02:02:11 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/23 16:44:47 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/27 15:55:13 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	draw_tiles(t_game *g, t_map map)
 }
 
 void	put_tile(t_game *g, char compo, int i, int j)
-{
+{	
 	if (compo == '1')
 		mlx_put_image_to_window(g->mlx, g->win,
 			g->tile.t_1.img, j * 32, i * 32);
@@ -62,10 +62,10 @@ void	enemy_sprite(t_game *g, int i, int j)
 {
 	static int	cnt = -1;
 
-	if (cnt++ < 20)
+	if (cnt++ < 140)
 		mlx_put_image_to_window(g->mlx, g->win,
 			g->tile.t_x[0].img, j * 32, i * 32);
-	else if (40 < cnt)
+	else if (200 < cnt)
 		cnt = -1;
 	else
 		mlx_put_image_to_window(g->mlx, g->win,
