@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:51:17 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/23 00:07:37 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/28 22:40:24 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	map_read(int line_cnt, char ***map, int fd)
 		if ((*map)[y] == NULL)
 		{
 			printf("gnl func error.\n");
-			while (0 < y)
+			while (0 <= --y)
 				free((*map)[y]);
 			free(*map);
 			exit(1);

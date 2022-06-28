@@ -6,7 +6,7 @@
 /*   By: sumsong <sumsong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 18:42:56 by sumsong           #+#    #+#             */
-/*   Updated: 2022/06/22 23:54:23 by sumsong          ###   ########.fr       */
+/*   Updated: 2022/06/28 22:37:59 by sumsong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	make_window(t_game *g)
 {
 	g->mlx = mlx_init();
-	g->win = mlx_new_window(g->mlx, (g->map.x) * 32, (g->map.y) * 32, "test");
+	g->win = mlx_new_window(g->mlx, (g->map.x) * 32,
+			(g->map.y) * 32, "so_long");
 	set_tiles(g);
 	set_player(g);
 	draw_map(g);
